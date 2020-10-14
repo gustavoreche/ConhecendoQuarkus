@@ -40,5 +40,5 @@ public class Bitcoin {
 	public void setData(LocalDate data) {
 		this.data = data;
 	}
-
+	
 }
