@@ -1,4 +1,4 @@
-package br.com.dominio.service;
+package br.com.dominio.bitcoin.service;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-import br.com.dominio.Bitcoin;
+import br.com.dominio.bitcoin.Bitcoin;
 
 @Path("/bitcoins")
 @RegisterRestClient
