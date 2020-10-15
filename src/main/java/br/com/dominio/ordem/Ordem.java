@@ -23,6 +23,10 @@ public class Ordem {
 	@Column(name = "user_id")
 	private Long userId;
 	
+	public Ordem() {
+		
+	}
+	
 	public Ordem(OrdemDTO ordemDTO) {
 		this.id = ordemDTO.getId();
 		this.preco = ordemDTO.getPreco();

@@ -6,9 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import br.com.aplicacao.usuario.UsuarioDTO;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
-public class Usuario {
+public class Usuario extends PanacheEntityBase {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +19,11 @@ public class Usuario {
 	private String username;
 	private String password;
 	
+	public Usuario() {
+		
+	}
+	
 	public Usuario(UsuarioDTO usuarioDTO) {
-		this.id = usuarioDTO.getId();
 		this.nome = usuarioDTO.getNome();
 		this.cpf = usuarioDTO.getCpf();
 		this.username = usuarioDTO.getUsername();
