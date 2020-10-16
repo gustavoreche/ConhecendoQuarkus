@@ -18,7 +18,7 @@ import io.quarkus.security.jpa.Username;
 public class Usuario extends PanacheEntityBase {
 	
 	private static final String ALURA = "alura";
-	private static final String ADMIN = "admin";
+	public static final String ADMIN = "admin";
 	public static final String USER = "user";
 
 	@Id

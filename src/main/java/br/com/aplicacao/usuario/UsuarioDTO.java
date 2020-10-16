@@ -1,5 +1,10 @@
 package br.com.aplicacao.usuario;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.json.bind.annotation.JsonbTransient;
+
 import br.com.dominio.usuario.Usuario;
 
 public class UsuarioDTO {
@@ -36,6 +41,7 @@ public class UsuarioDTO {
 		return username;
 	}
 
+	@JsonbTransient
 	public String getPassword() {
 		return password;
 	}
@@ -54,6 +60,10 @@ public class UsuarioDTO {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public static List<UsuarioDTO> converte(List<Usuario> usuarios) {
+		return usuarios.stream().map(UsuarioDTO::new).collect(Collectors.toList());
 	}
 
 }

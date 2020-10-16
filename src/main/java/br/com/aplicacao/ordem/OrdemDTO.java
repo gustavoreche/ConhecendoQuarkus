@@ -1,6 +1,8 @@
 package br.com.aplicacao.ordem;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.json.bind.annotation.JsonbProperty;
 
@@ -8,7 +10,6 @@ import br.com.dominio.ordem.Ordem;
 
 public class OrdemDTO {
 
-	private Long id;
 	private Double preco;
 	private String tipo;
 	private LocalDate data;
@@ -21,7 +22,6 @@ public class OrdemDTO {
 	}
 
 	public OrdemDTO(Ordem ordem) {
-		this.id = ordem.getId();
 		this.preco = ordem.getPreco();
 		this.tipo = ordem.getTipo();
 		this.data = ordem.getData();
@@ -31,10 +31,6 @@ public class OrdemDTO {
 	
 	public Ordem converteParaAEntidade() {
 		return new Ordem(this);
-	}
-
-	public Long getId() {
-		return id;
 	}
 
 	public Double getPreco() {
@@ -67,6 +63,10 @@ public class OrdemDTO {
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
+	}
+
+	public static List<OrdemDTO> converte(List<Ordem> ordens) {
+		return ordens.stream().map(OrdemDTO::new).collect(Collectors.toList());
 	}
 	
 }

@@ -30,7 +30,6 @@ public class Ordem {
 	}
 	
 	public Ordem(OrdemDTO ordemDTO) {
-		this.id = ordemDTO.getId();
 		this.preco = ordemDTO.getPreco();
 		this.tipo = ordemDTO.getTipo();
 		this.data = insereData(ordemDTO.getData());
