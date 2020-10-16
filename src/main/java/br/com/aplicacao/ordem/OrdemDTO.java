@@ -15,6 +15,10 @@ public class OrdemDTO {
 	private String status;
 	@JsonbProperty(value = "user_id")
 	private Long userId;
+	
+	public OrdemDTO() {
+
+	}
 
 	public OrdemDTO(Ordem ordem) {
 		this.id = ordem.getId();
@@ -53,4 +57,16 @@ public class OrdemDTO {
 		return userId;
 	}
 
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+	
 }
