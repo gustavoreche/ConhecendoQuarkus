@@ -50,6 +50,7 @@ Foi implementada na aplicação níveis de permissões, em que um usuário tem a
 Por exemplo: Nesta aplicação, os usuários que tem a permissão de “admin”, não conseguem inserir uma ORDEM, já os que têm permissão de “user” conseguem.
 
 Para inserir um “user”, segue os prints abaixo(os prints abaixo foram realizados no `POSTMAN`):
+
 [](https://github.com/gustavoreche/ConhecendoQuarkus/blob/master/prints/postUsuarioUser.png)
 <img src="https://github.com/gustavoreche/ConhecendoQuarkus/blob/master/prints/postUsuarioUser.png">
 
@@ -59,6 +60,7 @@ No banco de dados ficou da seguinte maneira:
 <img src="https://github.com/gustavoreche/ConhecendoQuarkus/blob/master/prints/bancoUsuarioUser.png">
 
 Para inserir um “admin”, segue os prints abaixo(os prints abaixo foram realizados no `POSTMAN`):
+
 [](https://github.com/gustavoreche/ConhecendoQuarkus/blob/master/prints/postUsuarioAdmin.png)
 <img src="https://github.com/gustavoreche/ConhecendoQuarkus/blob/master/prints/postUsuarioAdmin.png">
 
@@ -87,9 +89,3 @@ Com o id do “user”, e o username e password corretos, a ORDEM é inserida no
 <img src="https://github.com/gustavoreche/ConhecendoQuarkus/blob/master/prints/bancoOrdem.png">
 
 Se alterarmos as configurações para o id do “admin”, e o username e password corretos, a ORDEM não é inserida no banco de dados, pois ele não tem essa permissão.
-
-# RESTEasy JAX-RS
-
-Guide: https://quarkus.io/guides/rest-json
-
-
