@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -16,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
 
 import br.com.aplicacao.ordem.OrdemDTO;
-import br.com.dominio.ordem.repositorio.OrdemRepository;
+import br.com.aplicacao.ordem.OrdemRepositorio;
 import br.com.dominio.usuario.Usuario;
 
 @Path("/ordens")
@@ -25,7 +26,8 @@ public class OrdemResource {
 	private static final String ERRO_DE_USUARIO = "O usuário logado é diferente do \"user_id\"";
 	
 	@Inject
-	OrdemRepository ordemRepository;
+	@Named("ordemTerminal")
+	OrdemRepositorio ordemRepositorio;
 	
 	@POST
 	@Transactional
@@ -33,7 +35,7 @@ public class OrdemResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void insere(@Context SecurityContext security, OrdemDTO ordemDTO) {
 		validaUsuario(security, ordemDTO);
-		this.ordemRepository.persist(ordemDTO.converteParaAEntidade());
+		ordemRepositorio.insere(ordemDTO.converteParaAEntidade());
 	}
 
 	private void validaUsuario(SecurityContext security, OrdemDTO ordemDTO) {
@@ -48,7 +50,7 @@ public class OrdemResource {
 	@RolesAllowed(Usuario.ADMIN)
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<OrdemDTO> lista() {
-		return OrdemDTO.converte(this.ordemRepository.listAll());
+		return ordemRepositorio.listaTodos();
 	}
 
 }
