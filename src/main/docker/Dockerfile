@@ -45,7 +45,7 @@ RUN microdnf install curl ca-certificates ${JAVA_PACKAGE} \
 # Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
 ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
 
-COPY /var/lib/jenkins/workspace/conhecendo-quarkus-principal/target/lib/* /deployments/lib/
+COPY /var/lib/jenkins/workspace/conhecendo-quarkus-principal/target/lib/antlr.antlr-2.7.7.jar /deployments/lib/
 COPY target/*-runner.jar /deployments/app.jar
 
 EXPOSE 8080
